@@ -8,6 +8,7 @@
     "searchPlaceholder": "Search for a city ...",
     "noCities": "No cities found.",
     "generate": "Create Climate Diagram",
-    "generateLoading": "Creating Climate Diagram ..."
+    "generateLoading": "Creating Climate Diagram ...",
+    "displayPrecipitationAsLineMessage": "Display precipitation as line"
   }
 }

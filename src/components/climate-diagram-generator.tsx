@@ -8,6 +8,8 @@ import getClimateDiagram, {
 import { CityPicker } from "@/components/city-picker";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
+import { ClimateDiagramChart } from "./climate-diagram-chart";
+import { Checkbox } from "./ui/checkbox";
 
 export default function ClimateDiagramGenerator({
   lang,
@@ -15,18 +17,21 @@ export default function ClimateDiagramGenerator({
   emptyMessage,
   generateMessage,
   generateLoadingMessage,
+  displayPrecipitationAsLineMessage
 }: {
   lang: string;
   placeholder: string;
   emptyMessage: string;
   generateMessage: string;
   generateLoadingMessage: string;
+  displayPrecipitationAsLineMessage: string;
 }) {
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [generationLoading, setGenerationLoading] = useState<boolean>(false);
   const [generationError, setGenerationError] = useState<string | null>(null);
   const [generationResult, setGenerationResult] =
     useState<ClimateDiagram | null>(null);
+  const [precipitationAsLine, setPrecipitationAsLine] = useState(false);
 
   async function generateClimateDiagram() {
     if (!selectedCity) {
@@ -52,8 +57,14 @@ export default function ClimateDiagramGenerator({
     }
   }
 
+  const cityName = selectedCity
+    ? [selectedCity.admin4 ?? selectedCity.name, selectedCity.admin1, selectedCity.country]
+        .filter(Boolean)
+        .join(", ")
+    : "";
+
   return (
-    <div>
+    <div className="space-y-6">
       <CityPicker
         className="mt-4"
         language={lang}
@@ -63,9 +74,20 @@ export default function ClimateDiagramGenerator({
         onValueChange={setSelectedCity}
       />
 
+      <div className="flex items-center space-x-2">
+        <Checkbox
+          checked={precipitationAsLine}
+          onCheckedChange={(checked) =>
+            setPrecipitationAsLine(checked === true)
+          }
+        />
+        <label htmlFor="precipitation-as-line" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          {displayPrecipitationAsLineMessage}
+        </label>
+      </div>
+
       <Button
-        className="mt-4"
-        disabled={!selectedCity || generationLoading}
+        disabled={selectedCity === null || generationLoading}
         onClick={generateClimateDiagram}
       >
         {generationLoading ? (
@@ -81,9 +103,15 @@ export default function ClimateDiagramGenerator({
         <p className="mt-4 text-sm text-destructive">{generationError}</p>
       )}
       {generationResult && (
-        <pre className="mt-4 overflow-auto text-sm">
-          {JSON.stringify(generationResult, null, 2)}
-        </pre>
+        <>
+          <ClimateDiagramChart
+            chartData={generationResult.monthlyData}
+            stats={generationResult.stats}
+            koppen={generationResult.code}
+            cityName={cityName}
+            precipitationAsLine={precipitationAsLine}
+          />
+        </>
       )}
     </div>
   );

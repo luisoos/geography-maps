@@ -4,7 +4,7 @@ export default function getMonthlyNormals(daily: {
   temperature_2m_max: number[];
   temperature_2m_min: number[];
   precipitation_sum: number[];
-}) {
+}): MonthlyData[] {
   const tAcc = Array.from({ length: 12 }, () => ({
     mean: 0,
     max: 0,
@@ -36,6 +36,7 @@ export default function getMonthlyNormals(daily: {
     let pTotal = 0;
     for (const y of years) pTotal += pMonth.get(`${y}-${m}`) ?? 0;
     return {
+      month: new Date(2000, m, 1).toLocaleString("en", { month: "long" }),
       tMean: a.mean / a.n,
       tMax: a.max / a.n,
       tMin: a.min / a.n,

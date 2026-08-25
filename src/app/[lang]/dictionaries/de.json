@@ -8,6 +8,7 @@
     "searchPlaceholder": "Stadt suchen ...",
     "noCities": "Keine Städte gefunden.",
     "generate": "Klimadiagramm erstellen",
-    "generateLoading": "Klimadiagramm wird erstellt ..."
+    "generateLoading": "Klimadiagramm wird erstellt ...",
+    "displayPrecipitationAsLineMessage": "Niederschlag als Linie anzeigen"
   }
 }

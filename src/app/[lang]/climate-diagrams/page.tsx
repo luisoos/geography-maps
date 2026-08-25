@@ -22,6 +22,7 @@ export default async function ClimateDiagrams({
         emptyMessage={dictionary.climateDiagrams.noCities}
         generateMessage={dictionary.climateDiagrams.generate}
         generateLoadingMessage={dictionary.climateDiagrams.generateLoading}
+        displayPrecipitationAsLineMessage={dictionary.climateDiagrams.displayPrecipitationAsLineMessage}
       />
     </div>
   );

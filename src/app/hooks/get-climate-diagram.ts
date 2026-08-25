@@ -11,6 +11,7 @@ type ArchiveResponse = {
 export type ClimateDiagram = {
   latitude: number;
   longitude: number;
+  monthlyData: MonthlyData[];
   stats: Stats;
   code: string;
 };
@@ -42,11 +43,13 @@ export default async function getClimateDiagram(
     throw new Error("Climate data is unavailable for this location");
   }
 
-  const stats = climateStats(getMonthlyNormals(data.daily), latitude);
+  const monthlyNormals = getMonthlyNormals(data.daily);
+  const stats = climateStats(monthlyNormals, latitude);
 
   return {
     latitude,
     longitude,
+    monthlyData: monthlyNormals,
     stats,
     code: koppen(stats),
   };

@@ -224,51 +224,47 @@ export default function ClimateDiagramGenerator({
 
           <div>
             <h2 className="mb-2 text-sm font-semibold">{displaySettingsHeading} & {colorsHeading}</h2>
-            <div className="flex items-center space-x-2">
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2">
+              <div className="flex min-w-0 items-center gap-2">
                 <Checkbox
-                    checked={precipitationAsLine}
-                    onCheckedChange={(checked) =>
-                        setPrecipitationAsLine(checked === true)
-                    }
+                  checked={precipitationAsLine}
+                  onCheckedChange={(checked) => setPrecipitationAsLine(checked === true)}
                 />
-                <label htmlFor="precipitation-as-line" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                {displayPrecipitationAsLineMessage}
+                <label htmlFor="precipitation-as-line" className="min-w-0 text-sm font-medium leading-none">
+                  {displayPrecipitationAsLineMessage}
                 </label>
+              </div>
               <ColorPickerPopover color={precipitationColor} setColor={setPrecipitationColor} label={colorLabel} description={colorDescription} />
-            </div>
-            <div className="flex items-center space-x-2">
+
+              <div className="flex min-w-0 items-center gap-2">
                 <Checkbox
-                    checked={showMin}
-                    onCheckedChange={(checked) =>
-                        setShowMin(checked === true)
-                    }
+                  checked={showMin}
+                  onCheckedChange={(checked) => setShowMin(checked === true)}
                 />
-                <label htmlFor="show-min" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    {showMinMessage}
+                <label htmlFor="show-min" className="min-w-0 text-sm font-medium leading-none">
+                  {showMinMessage}
                 </label>
-                    <ColorPickerPopover color={minColor} setColor={setMinColor} label={colorLabel} description={colorDescription} />
-            </div>
-            <div className="flex items-center space-x-2">
+              </div>
+              <ColorPickerPopover color={minColor} setColor={setMinColor} label={colorLabel} description={colorDescription} />
+
+              <div className="flex min-w-0 items-center gap-2">
+                <Checkbox disabled checked={true} />
+                <label htmlFor="show-mean" className="min-w-0 text-sm font-medium leading-none">
+                  {showMeanMessage}
+                </label>
+              </div>
+              <ColorPickerPopover color={meanColor} setColor={setMeanColor} label={colorLabel} description={colorDescription} />
+
+              <div className="flex min-w-0 items-center gap-2">
                 <Checkbox
-                    disabled
-                    checked={true}
+                  checked={showMax}
+                  onCheckedChange={(checked) => setShowMax(checked === true)}
                 />
-                <label htmlFor="show-min" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    {showMeanMessage}
+                <label htmlFor="show-max" className="min-w-0 text-sm font-medium leading-none">
+                  {showMaxMessage}
                 </label>
-                <ColorPickerPopover color={meanColor} setColor={setMeanColor} label={colorLabel} description={colorDescription} />
-            </div>
-            <div className="flex items-center space-x-2">
-                <Checkbox
-                    checked={showMax}
-                    onCheckedChange={(checked) =>
-                        setShowMax(checked === true)
-                    }
-                />
-                <label htmlFor="precipitation-as-line" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                {showMaxMessage}
-                </label>
-                <ColorPickerPopover color={maxColor} setColor={setMaxColor} label={colorLabel} description={colorDescription} />
+              </div>
+              <ColorPickerPopover color={maxColor} setColor={setMaxColor} label={colorLabel} description={colorDescription} />
             </div>
           </div>
         </>

@@ -145,9 +145,9 @@ export function ClimateDiagramChart({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>🌍 {cityName}</CardTitle>
+        <CardTitle>{cityName}</CardTitle>
         <CardDescription>
-          {stats.northern ? labels.northernHemisphere : labels.southernHemisphere} | {labels.koppenGeiger}: {koppen}
+          {stats.northern ? labels.northernHemisphere : labels.southernHemisphere}, {labels.koppenGeiger}: {koppen}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -177,6 +177,7 @@ export function ClimateDiagramChart({
             <YAxis
               yAxisId="left"
               orientation="left"
+              tick={{ className: "font-mono" }}
               tickLine={false}
               axisLine={false}
               tickFormatter={(v) => `${v} °C`}
@@ -186,6 +187,7 @@ export function ClimateDiagramChart({
             <YAxis
               yAxisId="right"
               orientation="right"
+              tick={{ className: "font-mono" }}
               tickLine={false}
               axisLine={false}
               tickFormatter={(v) => `${v} mm`}
@@ -199,7 +201,7 @@ export function ClimateDiagramChart({
             <Line
               dataKey="tMean"
               type="linear"
-              stroke="red"
+              stroke={colors.tMean}
               yAxisId="left"
               strokeWidth={2}
               dot={false}
@@ -208,7 +210,7 @@ export function ClimateDiagramChart({
               <Line
                 dataKey="tMin"
                 type="linear"
-                stroke="blue"
+                stroke={colors.tMin}
                 yAxisId="left"
                 strokeWidth={1}
                 dot={false}
@@ -218,7 +220,7 @@ export function ClimateDiagramChart({
               <Line
                 dataKey="tMax"
                 type="linear"
-                stroke="green"
+                stroke={colors.tMax}
                 yAxisId="left"
                 strokeWidth={1}
                 dot={false}
@@ -240,24 +242,29 @@ export function ClimateDiagramChart({
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <h3 className="font-medium">{labels.stats}</h3>
-        <div className="grid w-full gap-4 sm:grid-cols-2">
+        <div className="grid w-full min-w-0 gap-x-6 gap-y-3 text-xs sm:grid-cols-2">
           {[
             { title: labels.temperatureCategory, keys: ["MAT", "tCold", "tHot", "tmon10"] as StatKey[] },
             { title: labels.precipitationCategory, keys: ["MAP", "pDry", "pSdry", "pSwet", "pWdry", "pWwet", "pSummerShare"] as StatKey[] },
           ].map((category) => (
-            <section key={category.title}>
-              <h4 className="mb-1 font-semibold">{category.title}</h4>
-              <table className="w-full text-left text-sm">
-                <tbody>
+              <section key={category.title} className="min-w-0">
+                <h4 className="mb-1 font-semibold">{category.title}</h4>
+                <dl className="space-y-0.5">
                   {category.keys.map((key) => (
-                    <tr key={key} title={statsLabels[key].description}>
-                      <th className="py-1 font-normal tracking-tight">{statsLabels[key].label}</th>
-                      <td className="py-1 text-right font-mono">{formatStat(key)}</td>
-                    </tr>
+                    <div
+                      key={key}
+                      title={statsLabels[key].description}
+                      className="grid min-w-0 grid-cols-[minmax(0,1fr)_max-content] items-baseline gap-x-2 leading-tight"
+                    >
+                      <dt className="min-w-0 truncate font-normal tracking-tight">
+                        {statsLabels[key].label}
+                      </dt>
+                      <dd className="whitespace-nowrap text-right font-mono text-[0.7rem]">
+                        {formatStat(key)}
+                      </dd>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </dl>
             </section>
           ))}
         </div>

@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="de"
       className={cn("h-full", "antialiased", inter.variable, lora.variable, iosevkaCharonMono.variable, "font-sans")}
     >
-      <body className="min-h-full flex flex-col max-w-[97.5%] pt-32 xl:max-w-xl mx-auto">
+      <body className="antialiased min-h-full flex flex-col max-w-[97.5%] pt-32 xl:max-w-xl mx-auto">
         {children}
       </body>
     </html>

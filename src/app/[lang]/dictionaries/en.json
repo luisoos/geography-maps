@@ -3,12 +3,52 @@
     "title": "Collection of Geography Maps",
     "climateDiagrams": "Climate Diagram Generator"
   },
+  "shared": {
+    "color": "Color",
+    "colorDescription": "Select the line color for the climate diagram."
+  },
   "climateDiagrams": {
     "title": "Climate Diagram Generator",
     "searchPlaceholder": "Search for a city ...",
     "noCities": "No cities found.",
     "generate": "Create Climate Diagram",
     "generateLoading": "Creating Climate Diagram ...",
-    "displayPrecipitationAsLineMessage": "Display precipitation as line"
+    "displayPrecipitationAsLineMessage": "Display precipitation as line",
+    "showMinMessage": "Show minimum temperature",
+    "showMaxMessage": "Show maximum temperature",
+    "showMeanMessage": "Show mean temperature",
+    "error": "The climate diagram could not be generated.",
+    "displaySettingsHeading": "Display",
+    "colorsHeading": "Colors",
+    "precipitationColorMessage": "Precipitation color",
+    "chart": {
+      "meanTemperature": "Temperature (°C)",
+      "minimumTemperature": "Minimum temperature (°C)",
+      "maximumTemperature": "Maximum temperature (°C)",
+      "precipitation": "Precipitation (mm)",
+      "diagram": "Climate diagram",
+      "monthlyNormals": "Monthly climate normals",
+      "koppenGeiger": "Köppen-Geiger"
+      ,"stats": "Climate statistics",
+      "temperatureCategory": "Temperature",
+      "precipitationCategory": "Precipitation",
+      "locationCategory": "Location",
+      "northernHemisphere": "Northern hemisphere",
+      "southernHemisphere": "Southern hemisphere"
+    },
+    "stats": {
+      "MAT": { "label": "Mean annual temperature", "unit": "°C", "description": "Average of the twelve monthly mean temperatures" },
+      "MAP": { "label": "Annual precipitation", "unit": "mm", "description": "Sum of the twelve monthly precipitation totals" },
+      "tCold": { "label": "Coldest month", "unit": "°C", "description": "Mean temperature of the coldest month" },
+      "tHot": { "label": "Warmest month", "unit": "°C", "description": "Mean temperature of the warmest month" },
+      "tmon10": { "label": "Months above 10 °C", "unit": "", "description": "Number of months with mean temperature above 10 °C" },
+      "pDry": { "label": "Driest month", "unit": "mm", "description": "Precipitation of the driest month of the year" },
+      "pSdry": { "label": "Driest summer month", "unit": "mm", "description": "Driest month of the summer half-year (Apr–Sep)" },
+      "pSwet": { "label": "Wettest summer month", "unit": "mm", "description": "Wettest month of the summer half-year (Apr–Sep)" },
+      "pWdry": { "label": "Driest winter month", "unit": "mm", "description": "Driest month of the winter half-year (Oct–Mar)" },
+      "pWwet": { "label": "Wettest winter month", "unit": "mm", "description": "Wettest month of the winter half-year (Oct–Mar)" },
+      "pSummerShare": { "label": "Summer precipitation share", "unit": "%", "description": "Share of the summer half-year in annual precipitation" },
+      "northern": { "label": "Hemisphere", "unit": "", "description": "Northern or southern hemisphere, controls summer months" }
+    }
   }
 }

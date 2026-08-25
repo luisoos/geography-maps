@@ -1,9 +1,9 @@
 type Month = { tMean: number; tMin: number; tMax: number; p: number };
 
 type MonthlyData = {
-	month: string;
-	tMean: number;
-	tMin: number;
-	tMax: number;
-	p: number;
+  month: number;
+  tMean: number;
+  tMin: number;
+  tMax: number;
+  p: number;
 };

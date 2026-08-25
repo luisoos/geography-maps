@@ -22,7 +22,20 @@ export default async function ClimateDiagrams({
         emptyMessage={dictionary.climateDiagrams.noCities}
         generateMessage={dictionary.climateDiagrams.generate}
         generateLoadingMessage={dictionary.climateDiagrams.generateLoading}
-        displayPrecipitationAsLineMessage={dictionary.climateDiagrams.displayPrecipitationAsLineMessage}
+        displayPrecipitationAsLineMessage={
+          dictionary.climateDiagrams.displayPrecipitationAsLineMessage
+        }
+        showMinMessage={dictionary.climateDiagrams.showMinMessage}
+        showMaxMessage={dictionary.climateDiagrams.showMaxMessage}
+        showMeanMessage={dictionary.climateDiagrams.showMeanMessage}
+        colorLabel={dictionary.shared.color}
+        colorDescription={dictionary.shared.colorDescription}
+        chartLabels={dictionary.climateDiagrams.chart}
+        statsLabels={dictionary.climateDiagrams.stats}
+        errorMessage={dictionary.climateDiagrams.error}
+        displaySettingsHeading={dictionary.climateDiagrams.displaySettingsHeading}
+        colorsHeading={dictionary.climateDiagrams.colorsHeading}
+        precipitationColorMessage={dictionary.climateDiagrams.precipitationColorMessage}
       />
     </div>
   );

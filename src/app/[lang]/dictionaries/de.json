@@ -3,12 +3,52 @@
     "title": "Sammlung von Geografiekarten",
     "climateDiagrams": "Klimadiagramm-Generator"
   },
+  "shared": {
+    "color": "Farbe",
+    "colorDescription": "Farbe der Linie im Klimadiagramm auswählen."
+  },
   "climateDiagrams": {
     "title": "Klimadiagramm-Generator",
     "searchPlaceholder": "Stadt suchen ...",
     "noCities": "Keine Städte gefunden.",
     "generate": "Klimadiagramm erstellen",
     "generateLoading": "Klimadiagramm wird erstellt ...",
-    "displayPrecipitationAsLineMessage": "Niederschlag als Linie anzeigen"
+    "displayPrecipitationAsLineMessage": "Niederschlag als Linie anzeigen",
+    "showMinMessage": "Minimale Temperatur anzeigen",
+    "showMaxMessage": "Maximale Temperatur anzeigen",
+    "showMeanMessage": "Mittlere Temperatur anzeigen",
+    "error": "Klimadiagramm konnte nicht erstellt werden.",
+    "displaySettingsHeading": "Anzeige",
+    "colorsHeading": "Farben",
+    "precipitationColorMessage": "Niederschlagsfarbe",
+    "chart": {
+      "meanTemperature": "Temperatur (°C)",
+      "minimumTemperature": "Minimale Temperatur (°C)",
+      "maximumTemperature": "Maximale Temperatur (°C)",
+      "precipitation": "Niederschlag (mm)",
+      "diagram": "Klimadiagramm",
+      "monthlyNormals": "Monatliche Klimamittelwerte",
+      "koppenGeiger": "Köppen-Geiger"
+      ,"stats": "Klimastatistiken",
+      "temperatureCategory": "Temperatur",
+      "precipitationCategory": "Niederschlag",
+      "locationCategory": "Standort",
+      "northernHemisphere": "Nordhalbkugel",
+      "southernHemisphere": "Südhalbkugel"
+    },
+    "stats": {
+      "MAT": { "label": "Jahresmitteltemperatur", "unit": "°C", "description": "Durchschnitt der zwölf Monatsmitteltemperaturen" },
+      "MAP": { "label": "Jahresniederschlag", "unit": "mm", "description": "Summe der zwölf monatlichen Niederschlagsmengen" },
+      "tCold": { "label": "Kältester Monat", "unit": "°C", "description": "Mitteltemperatur des kältesten Monats" },
+      "tHot": { "label": "Wärmster Monat", "unit": "°C", "description": "Mitteltemperatur des wärmsten Monats" },
+      "tmon10": { "label": "Monate über 10 °C", "unit": "", "description": "Anzahl der Monate mit Mitteltemperatur über 10 °C" },
+      "pDry": { "label": "Trockenster Monat", "unit": "mm", "description": "Niederschlag des trockensten Monats im Jahr" },
+      "pSdry": { "label": "Trockenster Sommermonat", "unit": "mm", "description": "Trockenster Monat des Sommerhalbjahrs (Apr–Sep)" },
+      "pSwet": { "label": "Feuchtester Sommermonat", "unit": "mm", "description": "Feuchtester Monat des Sommerhalbjahrs (Apr–Sep)" },
+      "pWdry": { "label": "Trockenster Wintermonat", "unit": "mm", "description": "Trockenster Monat des Winterhalbjahrs (Okt–Mär)" },
+      "pWwet": { "label": "Feuchtester Wintermonat", "unit": "mm", "description": "Feuchtester Monat des Winterhalbjahrs (Okt–Mär)" },
+      "pSummerShare": { "label": "Niederschlagsanteil Sommer", "unit": "%", "description": "Anteil des Sommerhalbjahrs am Jahresniederschlag" },
+      "northern": { "label": "Hemisphäre", "unit": "", "description": "Nord- oder Südhalbkugel, steuert die Sommermonate" }
+    }
   }
 }

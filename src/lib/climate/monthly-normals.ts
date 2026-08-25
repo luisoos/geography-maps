@@ -36,7 +36,7 @@ export default function getMonthlyNormals(daily: {
     let pTotal = 0;
     for (const y of years) pTotal += pMonth.get(`${y}-${m}`) ?? 0;
     return {
-      month: new Date(2000, m, 1).toLocaleString("en", { month: "long" }),
+      month: m,
       tMean: a.mean / a.n,
       tMax: a.max / a.n,
       tMin: a.min / a.n,

@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Collection of Geography Maps",
+    "climateDiagrams": "Climate Diagram Generator"
+  },
+  "climateDiagrams": {
+    "title": "Climate Diagram Generator",
+    "searchPlaceholder": "Search for a city ...",
+    "noCities": "No cities found.",
+    "generate": "Create Climate Diagram",
+    "generateLoading": "Creating Climate Diagram ..."
+  }
+}

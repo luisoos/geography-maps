@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Sammlung von Geografiekarten",
+    "climateDiagrams": "Klimadiagramm-Generator"
+  },
+  "climateDiagrams": {
+    "title": "Klimadiagramm-Generator",
+    "searchPlaceholder": "Stadt suchen ...",
+    "noCities": "Keine Städte gefunden.",
+    "generate": "Klimadiagramm erstellen",
+    "generateLoading": "Klimadiagramm wird erstellt ..."
+  }
+}

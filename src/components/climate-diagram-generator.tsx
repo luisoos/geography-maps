@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { City } from "@/app/hooks/get-coordinates-by-city";
+import type { City } from "@/app/hooks/get-coordinates-by-city";
+import getClimateDiagram, {
+  type ClimateDiagram,
+} from "@/app/hooks/get-climate-diagram";
 import { CityPicker } from "@/components/city-picker";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
@@ -22,7 +25,8 @@ export default function ClimateDiagramGenerator({
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [generationLoading, setGenerationLoading] = useState<boolean>(false);
   const [generationError, setGenerationError] = useState<string | null>(null);
-  const [generationResult, setGenerationResult] = useState<{ latitude: number; longitude: number; stats: any; code: string } | null>(null);
+  const [generationResult, setGenerationResult] =
+    useState<ClimateDiagram | null>(null);
 
   async function generateClimateDiagram() {
     if (!selectedCity) {
@@ -32,17 +36,10 @@ export default function ClimateDiagramGenerator({
     setGenerationError(null);
 
     try {
-      const response = await fetch(
-        `/api/climate-diagrams?longitude=${selectedCity.longitude}&latitude=${selectedCity.latitude}&lang=${lang}`,
+      const result = await getClimateDiagram(
+        selectedCity.latitude,
+        selectedCity.longitude,
       );
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to generate climate diagram: ${response.statusText}`,
-        );
-      }
-
-      const result = await response.json();
       setGenerationResult(result);
     } catch (error) {
       setGenerationError(
@@ -67,9 +64,9 @@ export default function ClimateDiagramGenerator({
       />
 
       <Button
-        onClick={async () => {
-          await generateClimateDiagram();
-        }}
+        className="mt-4"
+        disabled={!selectedCity || generationLoading}
+        onClick={generateClimateDiagram}
       >
         {generationLoading ? (
           <div className="flex">
@@ -80,7 +77,14 @@ export default function ClimateDiagramGenerator({
         )}
       </Button>
 
-      {JSON.stringify(generationResult, null, 2)}
+      {generationError && (
+        <p className="mt-4 text-sm text-destructive">{generationError}</p>
+      )}
+      {generationResult && (
+        <pre className="mt-4 overflow-auto text-sm">
+          {JSON.stringify(generationResult, null, 2)}
+        </pre>
+      )}
     </div>
   );
 }
